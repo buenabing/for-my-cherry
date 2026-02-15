@@ -1,0 +1,145 @@
+:root {
+    --softPink: #f8c8dc;
+    --purple-300: #d8b4fe;
+    --dark-bg: #0b0e27;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background-color: var(--dark-bg);
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* --- MAIN HERO TITLE --- */
+.valentines-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3rem, 8vw, 5rem);
+    text-align: center;
+    background: linear-gradient(to right, var(--softPink), var(--purple-300));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(255, 183, 178, 0.5));
+    animation: pulse 2s infinite ease-in-out;
+    margin-bottom: 10px;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.03); }
+}
+
+/* --- Layout Components --- */
+.container { position: relative; z-index: 10; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 100px 0; }
+.hero { justify-content: center; }
+
+.counter-box { text-align: center; margin-bottom: 40px; }
+.highlight { color: var(--softPink); font-weight: 700; font-size: 1.5rem; }
+.italic-sub { font-style: italic; opacity: 0.7; font-size: 0.9rem; margin-top: 5px; }
+
+/* Envelope Styling */
+.envelope-wrapper { cursor: pointer; text-align: center; transition: transform 0.3s; }
+.envelope-wrapper:hover { transform: scale(1.05); }
+.envelope {
+    width: 320px; height: 200px; background: #e0c097; border-radius: 8px;
+    position: relative; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+.wax-seal img { width: 90px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+.click-hint { margin-top: 15px; opacity: 0.6; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+
+/* --- LETTER PAPER SECTION --- */
+.letter-paper {
+    display: none; background: #fffcf5; color: #444; padding: 50px;
+    border-radius: 4px; max-width: 750px; line-height: 1.6;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 1px solid #d4b08c;
+}
+
+/* Applying cursive to the entire letter body text */
+.letter-content p { 
+    margin-bottom: 20px; 
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem; /* Increased for cursive readability */
+    color: #5d4037;
+    line-height: 1.4;
+}
+
+/* Letter Title (Centered) */
+.letter-paper h2.script-font {
+    font-family: 'Great Vibes', cursive;
+    color: #8b5e3c;
+    font-size: 3.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- SIGNATURE (Left Aligned) --- */
+.signature {
+    margin-top: 40px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* "From my orbit to yours" and "Buen" cursive */
+.signature .script-font, .signature p:last-child {
+    text-align: left !important; 
+    font-family: 'Great Vibes', cursive !important;
+    color: #8b5e3c;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.signature p:last-child {
+    margin-top: -10px; /* Pulls name closer to the closing phrase */
+    margin-left: 20px;
+    font-weight: 400; /* Cursive usually looks better at normal weight */
+}
+
+/* --- SECTION TITLES (CURSIVE) --- */
+.section h2, .section-title, .journey-container h2 {
+    font-family: 'Great Vibes', cursive !important;
+    color: var(--softPink);
+    font-size: 3.8rem;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Glass Cards */
+.glass {
+    background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 40px;
+}
+
+/* Grids */
+.songs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%; }
+.song-card { text-align: center; }
+.song-card h3 { margin-bottom: 30px; font-weight: 400; color: var(--softPink); font-family: 'Montserrat', sans-serif; }
+.img-frame img { width: 100%; height: 260px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
+.song-card p { font-size: 0.9rem; line-height: 1.6; opacity: 0.9; }
+
+.location-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 30px 0; }
+.location-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); }
+.journey-desc { font-size: 0.95rem; line-height: 1.8; opacity: 0.8; font-style: italic; }
+
+.memories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 900px; }
+.mem-card img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--softPink); transition: 0.3s; }
+.mem-card img:hover { transform: scale(1.02); }
+
+/* Background Decoration */
+.moon { position: fixed; top: 40px; right: 8%; width: 120px; height: 120px; background: #fffcf5; border-radius: 50%; box-shadow: 0 0 60px rgba(255, 252, 245, 0.4); z-index: -1; }
+.star { position: fixed; background: white; border-radius: 50%; animation: twinkle infinite ease-in-out; z-index: -2; }
+.heart-fall { position: fixed; top: -20px; color: var(--softPink); pointer-events: none; z-index: 1000; animation: fall linear forwards; }
+
+@keyframes twinkle { 0%, 100% { opacity: 0.2; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
